@@ -7,5 +7,5 @@ class CsvImporter(Importer):
         if path.endswith(".csv"):
             with open(path, "r", encoding='utf-8') as file:
                 reader = DictReader(file, delimiter=',', quotechar='"')
-        return list(reader)
+            return list(reader)
         raise ValueError("Extensão de arquivo não suportada")

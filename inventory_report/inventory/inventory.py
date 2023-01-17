@@ -1,18 +1,23 @@
 from inventory_report.reports.simple_report import SimpleReport
 from inventory_report.reports.complete_report import CompleteReport
-from inventory_report.importer.csv_importer import CsvImporter
-from inventory_report.importer.json_importer import JsonImporter
-from inventory_report.importer.xml_importer import XmlImporter
+import csv
+import json
+import xmltodict
 
 
 class Inventory:
     def import_data(path, type):
         if path.endswith(".csv"):
-            info = CsvImporter.import_data(path)
+            with open(path, "r") as file:
+                reader = csv.DictReader(file)
+                info = [row for row in reader]
         elif path.endswith(".json"):
-            info = JsonImporter.import_data(path)
+            with open(path, "r") as file:
+                info = json.load(file)
         else:
-            info = XmlImporter.import_data(path)
+            with open(path, "r") as file:
+                info = xmltodict.parse(file.read())
+                info = info["dataset"]["record"]
 
         if type == "simples":
             return SimpleReport.generate(info)
