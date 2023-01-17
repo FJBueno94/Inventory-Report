@@ -9,7 +9,7 @@ def test_cria_produto():
         '01/01/2023',
         '28/02/2033',
         '123456789',
-        'em local seco e arejado'
+        'local seco e arejado'
     )
 
     assert product_mock.id == 1
