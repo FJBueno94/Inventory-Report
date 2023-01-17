@@ -4,6 +4,7 @@ import xml.etree.ElementTree as ET
 
 
 class XmlImporter(Importer):
+    @classmethod
     def import_data(cls, path):
         if path.endswith(".xml"):
             with open(path, "r", encoding='utf-8') as file:
@@ -16,4 +17,4 @@ class XmlImporter(Importer):
                     }
                     products_list.append(products)
                 return products_list
-        raise ValueError("Extensão de arquivo não suportada")
+        raise ValueError("Arquivo inválido")
