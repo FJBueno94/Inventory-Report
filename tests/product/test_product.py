@@ -9,7 +9,7 @@ def test_cria_produto():
         '01/01/2023',
         '28/02/2033',
         '123456789',
-        'local seco e arejado'
+        'em local seco'
     )
 
     assert product_mock.id == 1
@@ -18,4 +18,4 @@ def test_cria_produto():
     assert product_mock.data_de_fabricacao == '01/01/2023'
     assert product_mock.data_de_validade == '28/02/2033'
     assert product_mock.numero_de_serie == '123456789'
-    assert product_mock.instrucoes_de_armazenamento == 'local seco e arejado'
+    assert product_mock.instrucoes_de_armazenamento == 'em local seco'
