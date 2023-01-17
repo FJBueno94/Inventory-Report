@@ -17,3 +17,4 @@ def test_relatorio_produto():
         " com validade até 28/02/2033 precisa ser armazenado"
         " em local seco."
     )
+    
